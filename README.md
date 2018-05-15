@@ -58,6 +58,15 @@ Install `gatsby-cli`
 npm install --global gatsby-cli
 ```
 
+## Deployment
+
+We currently do not have any deployment workflow.
+
+1. SSH into GCP instance.
+2. `$ git clone https://github.com/mlsaito/makosaito.com` (or `git pull`).
+3. Cd to project directory and, `npm install`.
+4. `$ gatsby develop -p 80`.
+
 ## Credits
 
 Thanks for the theme, [HTML5 UP](https://html5up.net/).
