@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Starter - Strata by HTML5 UP",
-    author: "Hunter Chang",
-    description: "A Gatsby.js Starter based on Strata by HTML5 UP"
+    title: "That Dev in Tokyo",
+    author: "Makoto Saito",
+    description: "My personal portfolio site. I write about tech, music, and games."
   },
   pathPrefix: '/',
   plugins: [
