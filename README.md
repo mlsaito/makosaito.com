@@ -65,7 +65,8 @@ We currently do not have any deployment workflow.
 1. SSH into GCP instance.
 2. `$ git clone https://github.com/mlsaito/makosaito.com` (or `git pull`).
 3. Cd to project directory and, `npm install`.
-4. `$ gatsby develop -p 80`.
+4. If you encounter dependency issue, just `sudo apt install [lib_name]` that library.
+5. `$ gatsby develop -p 80`.
 
 ## Credits
 
