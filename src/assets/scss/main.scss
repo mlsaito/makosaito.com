@@ -934,6 +934,10 @@
 			color: _palette(accent2, fg-bold);
 		}
 
+    a {
+			color: _palette(accent2, fg);
+    }
+
 		h1 {
 			color: _palette(accent2, fg);
 			font-size: 1.35em;
