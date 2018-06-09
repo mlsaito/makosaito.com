@@ -55,7 +55,7 @@ Don't forget to replace {project_name} with your project name.
 
 ## Deployment
 
-This project is currently deployed at `Google App Engine`.
+This project is currently deployed at `Google App Engine`.  
 This also assumes that you have already setup `gcloud` CLI tool (previous section).
 
 
