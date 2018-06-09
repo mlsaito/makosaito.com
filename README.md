@@ -1,72 +1,90 @@
 # My Personal Website
 
-This is basically where I dump my personal stuff - portfolio!
-
-Gatsby starter based on the Strata site template, designed by [HTML5 UP](https://html5up.net/strata).  
-Check out https://codebushi.com/gatsby-starters/ for more Gatsby starters and templates.
+This is basically where I dump my personal stuff - portfolio and blog posts!
 
 ## Preview
 
-http://makosaito.com
+https://makosaito.com
 
 ## Run on Local
 
-Install `gatsby-cli`
+1. Install `gatsby-cli`
 ```
 $ npm install --global gatsby-cli
 ```
 
-Clone project
+2. Clone project
 
 ```
 $ git clone https://github.com/mlsaito/makosaito.com.git
 ```
 
-Install dependencies
-
+3. Install dependencies
 ```
 $ npm install
 ```
 
-Run on Local
-
+4. Run on Local
 ```
 $ gatsby develop
 ```
 
-## Recreate Instance (Dependencies)
+### Setup `gcloud` CLI Tool
 
-This section has all the commands used to install dependencies from scratch, for the GCP instance.
+We deploy via `gcloud` CLI Tool.  
+Also handy for reconfiguration, creation, or switching between GAE apps.
 
-Install `git`
+1. Install and initialize `gcloud` CLI tool.
 ```
-$ sudo apt install git-all
-```
-
-Install `NVM`
-```
-$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.10/install.sh | bash
+$ brew tap caskroom/cask
+$ brew cask install google-cloud-sdk
 ```
 
-Install `nodeJS`
+2. Initialize CLI tool. Just follow through the steps.
 ```
-$ nvm install node
+$ gcloud init
 ```
 
-Install `gatsby-cli`
+3. Enable billing for newly created Google App Engine app
 ```
-npm install --global gatsby-cli
+Visit console directly or click:
+https://console.developers.google.com/project/{project_name}/settings
+
+Don't forget to replace {project_name} with your project name.
 ```
 
 ## Deployment
 
-We currently do not have any deployment workflow.
+This project is currently deployed at `Google App Engine`.
+This also assumes that you have already setup `gcloud` CLI tool (previous section).
 
-1. SSH into GCP instance.
-2. `$ git clone https://github.com/mlsaito/makosaito.com` (or `git pull`).
-3. Cd to project directory and, `npm install`.
-4. If you encounter dependency issue, just `sudo apt install [lib_name]` that library.
-5. `$ gatsby develop -p 80`.
+
+1. Clone project
+```
+$ git clone https://github.com/mlsaito/makosaito.com.git
+```
+
+2. Create a GatsbyJS production build
+```
+$ gatsby build
+```
+
+3. Deploy to `Google App Engine` using gcloud CLI tool
+```
+$ gcloud app deploy
+```
+
+You can view logs by executing:
+```
+$ gcloud app logs tail -s default
+```
+
+## Project Notes
+
+1. `app.yaml` - Used by `Google App Engine` to map routes to static files. (Documentation [here](https://cloud.google.com/appengine/docs/standard/python/config/appref)).
+2. `gcloud init` - Command to reconfigure, create, or switch between `Google App Engine` projects.
+3. This project uses a `python` runtime to serve static files, which is under Google's [`always-free-tier`](https://cloud.google.com/free/docs/always-free-usage-limits).
+4. `Google App Engine` now offers free, auto-renewing SSL ceritificates for custom domains!
 
 ## Credits
 
